@@ -115,8 +115,6 @@ int cliAreaCirc(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, 
   return 0;
 }
 
-
-
 int cliRaicesEcSegGrado(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, float *fvA_arg_resul, float *fvA_arg_resul2) {
   int ivL_resLlamd;
   int lvL_tamLongt;
