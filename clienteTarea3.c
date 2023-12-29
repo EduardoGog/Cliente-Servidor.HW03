@@ -34,7 +34,7 @@ int main(int argc, char **argv){
    fvL_arg1 = (float) atof(argv[2]);
    fvL_arg2 = argc > 4 ? (float) atof(argv[3]) : 0;
    fvL_arg3 = argc > 4 ? (float) atof(argv[4]) : 0;
-   fvL_arg4 = argc > 4 ? (float) atof(argv[5]) : 0;
+   fvL_arg4 = argc > 5 ? (float) atof(argv[5]) : 0;
   
    svL_obtOpera = selecOperacion(ivL_oper);
    svL_obtOpera(fvL_arg1, fvL_arg2, fvL_arg3, fvL_arg4, &fvL_arg_resul, &fvL_arg_resul2);
@@ -254,5 +254,5 @@ int cliProdPunto(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4,
   
   tpfree((char*)fbfr);
   tpterm();
-  return fvL_recValor;  
+  return 0;  
 }
