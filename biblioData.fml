@@ -1,0 +1,14 @@
+#Nombre id	tipo	flag	comentario
+#
+RADIO	2070	float	-	Radio
+AREA	2080	float	-	Area
+CONSTA	2090	float	-	Constante A
+CONSTB	2100	float	-	Constante B
+CONSTC	2110	float	-	Constante C
+RAIZX1	2120	float	-	Raiz X1
+RAIZX2	2130	float	-	Raiz X2
+AX	2140	float	-	ax
+AY	2150	float	-	ay
+BX	2160	float	-	bx
+BY	2170	float	-	by
+PRODPUNTO	2180	float	-	Producto punto
