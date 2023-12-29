@@ -1,0 +1,42 @@
+# Directorios/Rutas 
+BIN = ../bin
+OBJ = ../obj
+SRC = ../src
+INC = ../inc
+FML = ../fml
+CC = cc
+CFLAGS = -L${POSTGRES_HOME}/lib
+
+# Generacion de Aplicacion 
+all: campos_fml servidorTarea3 clienteTarea3
+
+# Compilacion de Campos FML
+campos_fml: $(FML)/biblioData.fml
+	mkfldhdr32 $(FML)/biblioData.fml
+	mv biblioData.fml.h $(INC)
+
+# Generacion de Servidores
+servidorTarea3: $(OBJ)/servidorTarea3.o
+	@echo Compilando el servidor servidorTarea3
+	CC="$(CC)" buildserver -v -f $(OBJ)/servidorTarea3.o \
+		-f "-I$(INC)"\
+		-o $(BIN)/servidorTarea3 \
+		-s servCalcAreaCirculo,servCalcEcSegGrado,servCalcProdPunto
+
+# Generacion de Cliente
+clienteTarea3: $(OBJ)/clienteTarea3.o
+	@echo Compilando el cliente clienteTarea3 
+	CC="$(CC)" buildclient -f $(OBJ)/clienteTarea3.o -o $(BIN)/clienteTarea3
+
+# Generacion de Ficheros Objeto
+$(OBJ)/servidorTarea3.o: $(SRC)/servidorTarea3.c $(INC)/biblioData.fml.h
+	$(CC) -c -I$(TUXDIR)/include -I$(INC) $(SRC)/servidorTarea3.c \
+		-o $(OBJ)/servidorTarea3.o
+
+$(OBJ)/clienteTarea3.o: $(SRC)/clienteTarea3.c $(INC)/biblioData.fml.h
+	$(CC) -c -I$(TUXDIR)/include -I$(INC) $(SRC)/clienteTarea3.c \
+		-o $(OBJ)/clienteTarea3.o
+
+# Borrado
+clean:
+	rm -f $(OBJ)/*.o $(BIN)/clienteTarea3 $(BIN)/servidorTarea3
