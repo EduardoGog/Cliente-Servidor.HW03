@@ -35,11 +35,11 @@ int main(int argc, char **argv){
    fvL_arg2 = argc > 4 ? (float) atof(argv[3]) : 0;
    fvL_arg3 = argc > 4 ? (float) atof(argv[4]) : 0;
    fvL_arg4 = argc > 5 ? (float) atof(argv[5]) : 0;
-  
+ 
    svL_obtOpera = selecOperacion(ivL_oper);
    svL_obtOpera(fvL_arg1, fvL_arg2, fvL_arg3, fvL_arg4, &fvL_arg_resul, &fvL_arg_resul2);
-   printf("Resultado del calculo: %f\n", fvL_arg_resul);
-   printf("Raices calculadas: %f y %f\n", fvL_arg_resul, fvL_arg_resul2);
+ 
+   printf("Resultado: %f, %f\n", fvL_arg_resul, fvL_arg_resul2);
 
    return 0;
 }
@@ -102,7 +102,6 @@ int cliAreaCirc(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, 
     tpterm(); 
     return (0); 
 }
- 
   /* Lectura de resultados */
   if(Fget32(fbfr, AREA, 0, (char *)&fvL_recValor, 0) < 0){
   userlog("No se leyo el resultado\n");
@@ -110,6 +109,7 @@ int cliAreaCirc(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, 
   }
 
   *fvA_arg_resul = fvL_recValor;
+  printf("Liberamos buffer y desconectamos de la aplicación\n");
   tpfree((char *)fbfr);
   tpterm();
   return 0;
@@ -183,10 +183,9 @@ int cliRaicesEcSegGrado(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fv
   tpterm();
   return 0;  
 }
-
 int cliProdPunto(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, float *fvA_arg_resul, float *fvA_arg_resul2) {
   int ivL_resLlamd;
-  int lvL_tamLongt;
+  long lvL_tamLongt;
   float fvL_recValor;
   FBFR32 *fbfr;
 
@@ -243,6 +242,7 @@ int cliProdPunto(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4,
       tpterm();
       return (0);
   }
+  /* Lectura de resultados */
   if(Fget32(fbfr, PRODPUNTO, 0, (char *)&fvL_recValor, 0) < 0) {
   userlog("No se leyo el resultado\n");
   tpreturn(TPFAIL, 0, (char *)fbfr, 0L, 0);
@@ -250,6 +250,7 @@ int cliProdPunto(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4,
   
   *fvA_arg_resul = fvL_recValor; 
   
+  printf ("Liberamos Buffer y desconectamos de la aplicación\n");
   tpfree((char*)fbfr);
   tpterm();
   return 0;  
