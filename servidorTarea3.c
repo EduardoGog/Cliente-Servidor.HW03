@@ -7,7 +7,6 @@
 #include <atmi.h>  
 #include "biblioData.fml.h"
 
-
 tpsvrinit(int argc, char *argv[]) {
     userlog ("Iniciando servidorTarea3");
     return 0;
@@ -83,12 +82,12 @@ void servCalcEcSegGrado(TPSVCINFO * rqst) {
     Fadd32(fbfr, RAIZX1, (char *)&fvL_raizX1, 0);
     Fadd32(fbfr, RAIZX2, (char *)&fvL_raizX2, 0);
     userlog("La primera raíz es [%f]\n", fvL_raizX1);
-    userlog("La primera raíz es [%f]\n", fvL_raizX2);
+    userlog("La segunda raíz es [%f]\n", fvL_raizX2);
 
     tpreturn(TPSUCCESS, 0, rqst->data, 0L, 0);
 
 }
-
+/* Servicio para calcular producto punto*/
 void servCalcProdPunto(TPSVCINFO *rqst) {
    float fvL_ax;
    float fvL_ay;
