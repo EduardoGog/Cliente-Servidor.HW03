@@ -66,7 +66,7 @@ opera selecOperacion(int ivA_oper) {
 
 int cliAreaCirc(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, float *fvA_arg_resul, float *fvA_arg_resul2) {
   int ivL_resLlamd;
-  int lvL_tamLongt;
+  long lvL_tamLongt;
   float fvL_recValor;
   FBFR32 *fbfr;
 
@@ -117,7 +117,7 @@ int cliAreaCirc(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, 
 
 int cliRaicesEcSegGrado(float fvA_arg1, float fvA_arg2, float fvA_arg3, float fvA_arg4, float *fvA_arg_resul, float *fvA_arg_resul2) {
   int ivL_resLlamd;
-  int lvL_tamLongt;
+  long lvL_tamLongt;
   float fvL_recValorX1, fvL_recValorX2;
   FBFR32 *fbfr;
 
